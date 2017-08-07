@@ -8,6 +8,7 @@
     "immutability-helper": "^2.2.3",
     "jquery": "^3.2.1",
     "material-ui": "^0.18.7",
+    "net": "^1.0.2",
     "normalizr": "^3.2.3",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -29,6 +30,9 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "smoothie": "^1.29.1",
+    "sockjs-client": "^1.1.2",
+    "stomp": "^0.1.1",
+    "stompjs": "^2.3.3",
     "underscore": "^1.8.3",
     "uri-template.js": "^0.1.2"
   },

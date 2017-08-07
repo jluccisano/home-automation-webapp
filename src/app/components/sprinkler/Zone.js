@@ -14,13 +14,13 @@ const Zone = ({setZone, zone}) => {
   return (
     <Card>
       <CardHeader
-        title={`Zone ${zone.name}`}
+        title={zone.name}
         subtitle="Subtitle"
         actAsExpander
         showExpandableButton
         />
       <CardActions>
-        <Toggle label="Simple" onToggle={handleToggle}/>
+        <Toggle label="On/Off" onToggle={handleToggle}/>
         <span>{zone.state}</span>
       </CardActions>
     </Card>

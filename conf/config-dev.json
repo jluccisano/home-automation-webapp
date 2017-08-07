@@ -1,3 +1,4 @@
 {
-  "serverURL": "http://81.56.136.120:8080"
+  "serverURL": "http://81.56.136.120:8514",
+  "serverSocket": "http://nextrun.fr:8084/stomp"
 }
