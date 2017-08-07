@@ -37,10 +37,10 @@ export function fetchAllZone() {
 
 /* SET */
 
-export function setZone(zone) {
+export function setZone(zone, state) {
   return dispatch => {
     dispatch({type: types.SET_ZONE_PENDING});
-    return Api.post('/zones', zone)
+    return Api.post(`/setZone?state=${(state === true) ? 1 : 0}`, zone)
       .then(() => {
         dispatch({
           type: types.SET_ZONE_SUCCESS,

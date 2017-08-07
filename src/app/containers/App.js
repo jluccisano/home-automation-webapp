@@ -16,6 +16,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.startSprinklerPolling();
+    this.props.startWebSocket();
   }
 
   render() {
@@ -36,12 +37,14 @@ App.propTypes = {
 
 App.propTypes = {
   children: PropTypes.object,
-  startSprinklerPolling: PropTypes.func
+  startSprinklerPolling: PropTypes.func,
+  startWebSocket: PropTypes.func
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    startSprinklerPolling: () => dispatch(SprinklerActions.startPolling())
+    startSprinklerPolling: () => dispatch(SprinklerActions.startPolling()),
+    startWebSocket: () => dispatch({type: 'CONNECT'})
   };
 };
 
