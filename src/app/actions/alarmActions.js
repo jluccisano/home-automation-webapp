@@ -6,9 +6,8 @@ import Api from '../middleware/api';
 export function enable() {
   return dispatch => {
     dispatch({type: types.SET_ALARM_PENDING});
-    return Api.get('/enable')
-      .then(response => {
-        console.log(response);
+    return Api.get('/alarm/enable')
+      .then(() => {
         return Promise.resolve();
       })
       .catch(error => {
@@ -21,9 +20,8 @@ export function enable() {
 export function disable() {
   return dispatch => {
     dispatch({type: types.SET_ALARM_PENDING});
-    return Api.get('/disable')
-      .then(response => {
-        console.log(response);
+    return Api.get('/alarm/disable')
+      .then(() => {
         return Promise.resolve();
       })
       .catch(error => {

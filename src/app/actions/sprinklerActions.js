@@ -18,9 +18,8 @@ export function startPolling() {
 export function fetchAllZone() {
   return dispatch => {
     dispatch({type: types.FETCH_ALL_ZONE_PENDING});
-    return Api.get('/zones')
+    return Api.get('/sprinkler/zones')
       .then(response => {
-        console.log(response.zones);
         dispatch({
           type: types.FETCH_ALL_ZONE_SUCCESS,
           response: normalize(response.zones, Schemas.ZONE_ARRAY),
@@ -40,7 +39,7 @@ export function fetchAllZone() {
 export function setZone(zone, state) {
   return dispatch => {
     dispatch({type: types.SET_ZONE_PENDING});
-    return Api.post(`/setZone?state=${(state === true) ? 1 : 0}`, zone)
+    return Api.post(`/sprinkler/zones?state=${(state === true) ? 1 : 0}`, zone)
       .then(() => {
         dispatch({
           type: types.SET_ZONE_SUCCESS,

@@ -9,6 +9,14 @@ class Api {
     return url;
   }
 
+  static addTokenToRequest(headers, token) {
+    return {
+      headers: Object.assign({
+        Authorization: `Bearer ${token}`
+      }, headers)
+    };
+  }
+
   static get(resourceApi, templatedValues) {
     return Axios.get(Api.getURL(Config.serverURL + resourceApi, templatedValues))
       .then(response => response.data)

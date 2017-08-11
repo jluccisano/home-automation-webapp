@@ -32,10 +32,6 @@ class App extends Component {
 }
 
 App.propTypes = {
-  children: PropTypes.object
-};
-
-App.propTypes = {
   children: PropTypes.object,
   startSprinklerPolling: PropTypes.func,
   startWebSocket: PropTypes.func

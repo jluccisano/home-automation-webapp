@@ -3,6 +3,12 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import {Link} from 'react-router';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import FlatButton from 'material-ui/FlatButton';
 
 export class Header extends Component {
 
@@ -13,20 +19,43 @@ export class Header extends Component {
 
   render() {
     const handleToggleLeftNav = () => this.setState({open: !this.state.open});
+    const {isAuthenticated} = this.props.user;
+    const Login = props => (
+      <FlatButton {...props} label="Login"/>
+    )
+    const Logged = props => (
+      <IconMenu
+        {...props}
+        iconButtonElement={
+          <IconButton><MoreVertIcon/></IconButton>
+        }
+        targetOrigin={{horizontal: 'right', vertical: 'top'}}
+        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+        >
+        <MenuItem primaryText="Sign out"/>
+      </IconMenu>
+    );
 
     return (<header>
       <AppBar
         iconClassNameRight="muidocs-icon-navigation-expand-more"
         onLeftIconButtonTouchTap={handleToggleLeftNav}
+        iconElementRight={isAuthenticated ? <Logged/> : <Login/>}
         />
       <Drawer open={this.state.open} docked={false} onRequestChange={handleToggleLeftNav}>
         <Link to="/sprinkler"><MenuItem onTouchTap={handleToggleLeftNav}>Sprinkler</MenuItem></Link>
         <Link to="/alarm"><MenuItem onTouchTap={handleToggleLeftNav}>Alarm</MenuItem></Link>
-
       </Drawer>
     </header>);
   }
-
 }
 
-export default Header;
+Header.propTypes = {
+  user: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps, null)(Header);
