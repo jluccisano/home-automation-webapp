@@ -28,17 +28,26 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader?minimize!sass-loader!postcss-loader'
-        })
-      },
-      {
-        test: /\.js$/,
         exclude: /node_modules/,
         loaders: [
-          'babel-loader'
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+          'postcss-loader'
         ]
+      },
+      {
+        test:    /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader:  'babel-loader',
+        query:   {
+            presets: ['es2015', 'react']
+        }
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        exclude: /node_modules/,
+        loader: 'url-loader?limit=100000'
       }
     ]
   },

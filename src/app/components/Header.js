@@ -19,10 +19,10 @@ export class Header extends Component {
 
   render() {
     const handleToggleLeftNav = () => this.setState({open: !this.state.open});
-    const {isAuthenticated} = this.props.user;
+    const {isAuthenticated} = this.props.auth;
     const Login = props => (
       <FlatButton {...props} label="Login"/>
-    )
+    );
     const Logged = props => (
       <IconMenu
         {...props}
@@ -38,7 +38,6 @@ export class Header extends Component {
 
     return (<header>
       <AppBar
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
         onLeftIconButtonTouchTap={handleToggleLeftNav}
         iconElementRight={isAuthenticated ? <Logged/> : <Login/>}
         />
@@ -51,11 +50,11 @@ export class Header extends Component {
 }
 
 Header.propTypes = {
-  user: PropTypes.object.isRequired
+  auth: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  auth: state.auth
 });
 
 export default connect(mapStateToProps, null)(Header);

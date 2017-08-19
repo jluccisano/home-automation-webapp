@@ -4,9 +4,9 @@ import Config from 'Config';
 import * as types from '../constants/ActionTypes';
 
 const socketMiddleware = () => {
-  const socket = new SockJS(Config.serverSocket);
-  const stompClient = Stomp.over(socket);
   return store => next => action => {
+    const socket = new SockJS(Config.serverSocket);
+    const stompClient = Stomp.over(socket);
     switch (action.type) {
       case 'CONNECT':
         stompClient.connect({}, () => {

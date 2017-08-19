@@ -1,6 +1,6 @@
 {
   "presets": [
-    "es2015",
+    ["es2015", { "modules": false }],
     "react",
     "stage-2"
   ],
@@ -12,17 +12,6 @@
     "test": {
       "plugins": [
         "istanbul"
-      ]
-    },
-    "production": {
-      "presets": [
-        [
-          "es2015",
-          {
-            "modules": false
-          },
-          "react"
-        ]
       ]
     }
   }
