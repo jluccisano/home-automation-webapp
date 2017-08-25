@@ -1,7 +1,7 @@
-.tmp/
 coverage/
 dist/
 node_modules/
-.idea
-idea/
-workspace.xml
+.idea/
+*.iml
+npm-debug.log
+package-lock.json

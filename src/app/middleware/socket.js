@@ -1,12 +1,12 @@
 import SockJS from 'sockjs-client';
-import Stomp from 'stompjs';
 import Config from 'Config';
+import webstomp from 'webstomp-client';
 import * as types from '../constants/ActionTypes';
 
 const socketMiddleware = () => {
   return store => next => action => {
     const socket = new SockJS(Config.serverSocket);
-    const stompClient = Stomp.over(socket);
+    const stompClient = webstomp.over(socket);
     switch (action.type) {
       case 'CONNECT':
         stompClient.connect({}, () => {

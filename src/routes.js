@@ -8,10 +8,10 @@ import EnsureIsAuthenticatedContainer from './app/components/auth/EnsureIsAuthen
 import LoginForm from './app/components/auth/LoginForm';
 
 export default <Route path="/" component={App}>
-  <Route path="login" component={LoginForm}/>
-  <Route component={EnsureIsAuthenticatedContainer}>
-    <Route path="sprinkler" component={Zones}/>
-    <Route path="alarm" component={AlarmControl}/>
-    <Route path="temperature" component={Temperature}/>
-  </Route>
+	<Route path="login" component={LoginForm}/>
+	<Route component={EnsureIsAuthenticatedContainer}>
+		<Route path="sprinkler" component={Zones}/>
+		<Route path="alarm" component={AlarmControl}/>
+		<Route path="temperature" component={Temperature}/>
+	</Route>
 </Route>;
