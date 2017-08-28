@@ -1,10 +1,10 @@
 import * as types from '../constants/ActionTypes';
 import Api from '../middleware/api';
 
-export function login() {
+export function authenticate(user) {
   return dispatch => {
     dispatch({type: types.LOGIN_REQUEST});
-    return Api.get('/authenticate')
+    return Api.post('/authenticate', user)
       .then(response => {
         dispatch({type: types.LOGIN_SUCCESS, token: response, receivedAt: Date.now()});
         localStorage.setItem('token', response);

@@ -25,7 +25,7 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --config conf/webpack.dev.js",
+    "start": "webpack-dev-server -d --config conf/webpack.dev.js",
     "build": "webpack --env=prod --progress --profile --colors",
     "lint": "eslint ./src/**.js",
     "coverage": "jest --coverage --config=conf/jest.config.js",
