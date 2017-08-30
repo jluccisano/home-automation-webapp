@@ -15,7 +15,8 @@ deploy:
   email: joseph.luccisano@gmail.com
   file: "dist/**/*"
   on:
-    tags: true
+    tags: false
+    branch: master
   #travis encrypt "GITHUB PASSWORD" --add deploy.password
   password:
     secure: DiJKCldAOw5lWvg48OWJWVTU5Vgs9ZIUCClpaVxEBd10NFq6zrxw1T6YvIansNyJQqxcZmpvY47Ka/qLLTaAz8pqwailjTz/YMjCZFRil2fHJvVScNlqrdPyo84U8Ceyn0dSPjuIyYj5Xz/Euln5hCzJqdlmPJ0V+fZ4uI/K/zFh+7M9cg02G2+Rd6yJUyJU+wSe32PJqpt7dxTiYXta+cVco658efVsyyJJBNV5qsaljQSGRqVrSpCdYTSnQtkHuvEFr/T1aeNQUQMqcpLGJRVaV4A1yOBGPJaew0DJ5zJsDX4QgZ4BhuPwWqovsXJX/6N3lt/VGE3pO+yZaa3eGh8PrVMUCSdaJ7VPiOSAUo6Ql4W4jeUEemy2ROw1T/qgYQPM3y+JVa1wIa++pp0XGbVrISJEnDY6CUipTqhaxHe0ZO6uTOBieerrx4sLQpZTOJwfBsuTk8jZGtIiCVpQdZQDpl8lQ1BMcGza3LcE9Zl1HXcyNSB181jo7h9r+NVLoZvEa3A5i6W9BIL7uHpf57Fp+niHjCZO3o8HBqxy5l1kGcEV2tFTFIR0jhPnMFhfyJabhD8QJ+6wLbk3Bwyi0bX0+j+QiukNT8ZM3E4HLA1m9ux/8L18Iko8sjEoT/e9kpNfDieioxrqNCED+bOEjRnYeMp708WrQMaBgkxHHtg=
