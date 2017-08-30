@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '7'
+- '7'
 cache:
   directories:
   - node_modules
@@ -17,3 +17,15 @@ before_script:
 script:
 - npm run test
 - codecov
+deploy:
+  provider: releases
+  skip_cleanup: true
+  email: joseph.luccisano@gmail.com
+  on:
+    tags: true
+  #travis encrypt "GITHUB PASSWORD" --add deploy.password
+  password:
+    secure: DiJKCldAOw5lWvg48OWJWVTU5Vgs9ZIUCClpaVxEBd10NFq6zrxw1T6YvIansNyJQqxcZmpvY47Ka/qLLTaAz8pqwailjTz/YMjCZFRil2fHJvVScNlqrdPyo84U8Ceyn0dSPjuIyYj5Xz/Euln5hCzJqdlmPJ0V+fZ4uI/K/zFh+7M9cg02G2+Rd6yJUyJU+wSe32PJqpt7dxTiYXta+cVco658efVsyyJJBNV5qsaljQSGRqVrSpCdYTSnQtkHuvEFr/T1aeNQUQMqcpLGJRVaV4A1yOBGPJaew0DJ5zJsDX4QgZ4BhuPwWqovsXJX/6N3lt/VGE3pO+yZaa3eGh8PrVMUCSdaJ7VPiOSAUo6Ql4W4jeUEemy2ROw1T/qgYQPM3y+JVa1wIa++pp0XGbVrISJEnDY6CUipTqhaxHe0ZO6uTOBieerrx4sLQpZTOJwfBsuTk8jZGtIiCVpQdZQDpl8lQ1BMcGza3LcE9Zl1HXcyNSB181jo7h9r+NVLoZvEa3A5i6W9BIL7uHpf57Fp+niHjCZO3o8HBqxy5l1kGcEV2tFTFIR0jhPnMFhfyJabhD8QJ+6wLbk3Bwyi0bX0+j+QiukNT8ZM3E4HLA1m9ux/8L18Iko8sjEoT/e9kpNfDieioxrqNCED+bOEjRnYeMp708WrQMaBgkxHHtg=
+  #travis encrypt "GITHUB USER" --add deploy.user
+  user:
+    secure: VoK27sWhEeMFepnqmckYchCNnVuK9dYPXwWJFNyoV6S5jCVSl9Wpthf6UYipFbnOTdrMcHXHamE5L19SHzD11lO3I7jUYRS55QWKldGw4ShPdW0tnzUhyBFkdESCg84ipfOhdhTMdu0FctnKvksrAvO22IsAopp9e6q16qma37cx0KK5mjLBIODqRKmT4RGx7oHWDNUEcF+RLE4PXQDbuNkcVGz8q06xUTg1iRcKlE27g7tjRt0UF+B/XTPo4363TxBunO2/J3kZTMIFsdXWxoYVm9tsO+J16zRMNf4cfR0mfNtHoovZJPovuJ8LKAq9baKml0nbhxtk/7Umz2lXCbQmQ97vseKEGAkbrg7+mv9+7h5qC72DP5ExNMP+armIyNiwVS4zNgsOex1ji/qeeDK9zW6YTISQW41EA2j4pJ6PG2oD9oPz43AxsSTte6dxkCzfmJj/K5dIF87Os5z8V+qTYaWv8bwc8pWRXBV3mQ09++bEzVuYowIxCCc6RtR3KIyeGcx9drlUDe5Z8eMaoZniApvP0QTOy8OMWIC6p7AAFMCZEFiFVs8uY4kepDAbWsffZfnn4PMb0pFjMH0th6vIZavkxQWcTbl8f6wHF3AgZUpzhhx+WfaCtvyDd/b+p/qi30OFfTnTLIByRY86mytOO6FkRrcF1NEf01j6N1M=
