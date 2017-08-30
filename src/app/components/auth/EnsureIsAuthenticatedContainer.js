@@ -21,7 +21,7 @@ class EnsureIsAuthenticatedContainer extends Component {
 }
 
 EnsureIsAuthenticatedContainer.propTypes = {
-  isAuthenticated: PropTypes.object,
+  isAuthenticated: PropTypes.bool,
   children: PropTypes.object
 };
 

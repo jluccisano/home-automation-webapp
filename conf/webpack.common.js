@@ -15,7 +15,11 @@ module.exports = {
   devtool: 'source-map', // enhance debugging by adding meta info for the browser devtools
 
   entry: {
-    app: './index.js'
+    'app': [
+      'babel-polyfill',
+      'react-hot-loader/patch',
+      './index'
+    ]
   },
 
   output: {
@@ -39,12 +43,14 @@ module.exports = {
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['env', 'react']
-        }
-      }
+      use: [
+        {loader: 'react-hot-loader/webpack'},
+        {
+          loader: 'babel-loader',
+          query: {
+            presets: ['env', 'react', 'stage-2']
+          }}
+      ]
     },{
         test: /\.css$/,
         loader: 'style-loader!css-loader',

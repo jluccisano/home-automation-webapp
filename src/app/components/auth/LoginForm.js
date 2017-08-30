@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
-import FieldGroup from '../commons/FieldGroup';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import * as AuthActions from '../../actions/authActions';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {TextField} from 'redux-form-material-ui';
 
 class LoginForm extends Component {
   render() {
@@ -19,10 +19,10 @@ class LoginForm extends Component {
               <Col xs={6} md={3}>
                 <form onSubmit={handleSubmit(submit)}>
                   <div>
-                    <Field name="username" component={FieldGroup} label="Username"/>
+                    <Field name="username" type="text" component={TextField} hintText="Username"/>
                   </div>
                   <div>
-                    <Field name="password" component={FieldGroup} label="Password"/>
+                    <Field name="password" type="password" component={TextField} hintText="Password"/>
                   </div>
                   <div>
                     <RaisedButton label="Sign in" primary type="submit"/>

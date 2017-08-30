@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import PropTypes from 'prop-types';
 import * as SprinklerActions from '../actions/sprinklerActions';
 import {connect} from 'react-redux';
+import {browserHistory} from 'react-router';
 
 class App extends Component {
 
@@ -15,6 +16,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const {isAuthenticated} = this.props;
+    if (!isAuthenticated) {
+      browserHistory.replace('/login');
+    }
     // this.props.startSprinklerPolling();
     // this.props.startWebSocket();
   }
@@ -33,9 +38,14 @@ class App extends Component {
 
 App.propTypes = {
   children: PropTypes.object,
+  isAuthenticated: PropTypes.bool,
   // startSprinklerPolling: PropTypes.func,
   // startWebSocket: PropTypes.func
 };
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -44,5 +54,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
-
+export default connect(mapStateToProps, mapDispatchToProps)(App);

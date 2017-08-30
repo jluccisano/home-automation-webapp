@@ -1,3 +1,7 @@
 {
-  "presets": ["env"] //automatically determine the Babel plugins and polyfills you need based on your supported environments.
+  "presets": [
+    ["env", {"modules": false}],
+    "stage-2",
+    "react"
+  ]
 }
