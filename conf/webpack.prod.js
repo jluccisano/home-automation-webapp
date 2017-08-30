@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
 const CommonConfig = require('./webpack.common.js');
+const WebpackZipPlugin = require('webpack-zip-plugin');
 
 module.exports = Merge(CommonConfig, {
   externals: {
@@ -26,6 +27,11 @@ module.exports = Merge(CommonConfig, {
         screw_ie8: true
       },
       comments: false
+    }),
+    new WebpackZipPlugin({
+      initialFile: './dist',
+      endPath: './release',
+      zipName: 'app.zip',
     })
   ]
 });
