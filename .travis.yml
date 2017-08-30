@@ -12,11 +12,6 @@ before_install:
 install:
 - npm install
 - npm run build
-before_script:
-- npm install -g codecov
-script:
-- npm run test
-- codecov
 deploy:
   provider: releases
   skip_cleanup: true
