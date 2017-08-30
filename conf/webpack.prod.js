@@ -30,7 +30,7 @@ module.exports = Merge(CommonConfig, {
     }),
     new WebpackZipPlugin({
       initialFile: './dist',
-      endPath: './release',
+      endPath: './dist',
       zipName: 'app.zip',
     })
   ]
