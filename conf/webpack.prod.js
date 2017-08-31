@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
 const CommonConfig = require('./webpack.common.js');
-const WebpackZipPlugin = require('webpack-zip-plugin');
+var ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = Merge(CommonConfig, {
   externals: {
@@ -28,10 +28,10 @@ module.exports = Merge(CommonConfig, {
       },
       comments: false
     }),
-    new WebpackZipPlugin({
-      initialFile: './dist',
-      endPath: './dist',
-      zipName: 'app.zip',
+    new ZipPlugin({
+      filename: 'home-automation-webapp.zip',
+      extension: 'zip',
+      pathPrefix: './'
     })
   ]
 });
