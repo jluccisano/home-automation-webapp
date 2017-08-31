@@ -4,9 +4,6 @@ const CommonConfig = require('./webpack.common.js');
 var ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = Merge(CommonConfig, {
-  externals: {
-    Config: JSON.stringify(require('./config-prod.json'))
-  },
   plugins: [
     new webpack.LoaderOptionsPlugin({
       minimize: true,
