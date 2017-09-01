@@ -1,25 +1,26 @@
 language: node_js
 sudo: required
 node_js:
-  - '7'
+- '7'
 services:
-  - docker
+- docker
 cache:
   directories:
-    - node_modules
+  - node_modules
 before_install:
-  - npm i -g npm@^5.3.0
+- npm i -g npm@^5.3.0
 install:
-  - npm install
-  - npm run build
+- npm install
+- npm run build
 script:
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - docker build -t $REPO:$TAG .
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH
+  ; fi`
+- docker build -t $REPO:$TAG .
 after_success:
-  - docker login --password $DOCKER_PASS --username $DOCKER_USER
-  - docker tag $REPO:$COMMIT $REPO:$TAG
-  - docker tag $REPO:$COMMIT $REPO:$TRAVIS_BUILD_NUMBER
-  - docker push $REPO
+- docker login --password $DOCKER_PASS --username $DOCKER_USER
+- docker tag $REPO:$COMMIT $REPO:$TAG
+- docker tag $REPO:$COMMIT $REPO:$TRAVIS_BUILD_NUMBER
+- docker push $REPO
 deploy:
   provider: releases
   api_key:
@@ -28,10 +29,10 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    repo: jluccisano/home-automation-webapp
+    repo: "$REPO"
 env:
   global:
-    - secure: Z9pfKHdMhoxi1oxB0U8g+9HZt7Gp4/hX2RbDI/COjdvgApY+yIBCIZIfkQw1KbBolxpFO5NZbP5QlPeYVuoqSIoX+LOjVv/0VU9UmT+xmw4YO48d0fd5UNJRZydBMO6UnVZMMifyuqmilOLVZNyyR3HiV2ROqLo5dDFbfBlIDgKjPF8sQt9RNtzxH1cQmXg+iKqIluRWT/ONDFuEappqNPl0jweQyiHlzi1RdA4S5YjGznoj/4BTB8iT4seouUYgVdsygeKKSWOCgssj1/HaZTx97V0kBKlcjsixAjCPGOEtBQMXCEbwjvwSkp/L3rP04UjrTbdpFwQpqHeuTHODX14khAI1bjcShMqnF6AL9O1fI9Uxly6BEeSk3U1aUh90I2D9trVMlO5GnYItt0H5HQTuoU6GOMdOcN/1btxJvhDWOwojjT3noUj8jyReMj+0E6iX1qJom/gnTrATct606AZx9pHU5/ZEv/bdg8yj/kIviVjpNZSTYz70i74QOGcrfU1BQ4nrewXZ7cBB4lsHzKCLjjRAy0wxwQlN3THep4JcF2uqls2hHOk33JLinVHyu6Pz2kxw0IghstrY3VzSKpgLPK0V+BA7DLvswtytvZtNmbl2Czgh7F0lt9+uPR9smFN6meSqENFvLJq13+F9sUMb5AiTKdrnf2BV/c6rJCY=
-    - secure: JORgvCrUnH2BVuXC7JhXs6Hxmo/BOI130nGLMwxX4280AbvhUX+KNEKf8kc9Rmsm0lEdNTp6a1Z9pkRmnddK7xTj8vzp79pOZzOdXoS8znZRsM2seCNPugi2eRyB2eFzsbq6jq4Y5mbLoop+vBtQTUkjenWIgvq87JOsbq0bgLN0rKoT1XzTp+4bYqIjHnKtm0Du3WeDerxr63pjmTLi44riW1KhhiQkFoHBSfVeQNE4yJ7cgazBBiqlKm4Y6CVLKCgwbZejuurtJXRBXhaPNOoYBEu9mvV8YiaO5Q1iTP+f59kWyCKaNEOE0OkBUgp2PjrNAvO2awOpkXZeuvskkMCQG4G6S6lEPN7cD2ZozTfwo3k8o/JdZ2m4fpTxGuDNvd1c3mlowOCkzclDOvwSO5sr5CCbRbmF67x5RNo3Sqdx2FU11K9ijDT9tGenuk48bjT4ZN+RTGXHxtbP3FTYNb34q1pyt1MzCwn9ZxqABrjZtVs1/m3cImIUfaEN/3rLRmgu4prcQuaJJqT93Hs7M+ARJ2n2LthcVTyVeS7+5ZTSrTSMIMEdLEeTWyIr7ZsFpotZ1caKRg2FGVnwcBkiyLO+v3BjT1fn+0yyy3ynRJIxIea0jc4WqxXWwEIpa9KycdkGfBt2XkYZ6lhHVFH/73c7NMdSVsTRITelJsF2jxE=
-    - COMMIT=${TRAVIS_COMMIT::8}
-    - REPO=$DOCKER_USER/home-automation-webapp
+  - secure: TecGmyKwUSpfLG/7vlXQ/3CHsTVtPyKNJy90HCDv61dZxga7TAFLLQ03MWfrr5rrEUxc50P4pPt0mpNgYk7pbpjGYmWNO6fbcj/jhHkC81YTe5WKItwAkIH761M+bDBSh4B6n3wN27gl8S8zcw8Kz7ZYkAxigfCI69jKMvmhOe2hx4T1/wqx7zmNyDofjgg6Gm9jahFNjUYIyHwy4YvbsSAzNLTdYPlCs4Cs1MxIXmwYptJ3hHxH+ysTJ5wXjJ5/qaYJ411JF8CyyuU2BhSTguPuaFj3cFetfIGCqGCRVPI/QqPAfC2UNDaSIAy4IhWswxgaEC4+GmxPx0+pOiFbYnkLsyqQ7/tFRturqWKtXnPigJ9E0FTLyVi5H9dAg4EW9nJWsV6s0wBvYImk8GKw/u2PKVDYHEDejCXBd/PH6Jq5CLnbILbwYfPuAPbddBEV6dPRt988YgLiTxgnz9EylE9qoS5MuPdkBoj3NAG2jccfAi2tS1IumetgaQc30qm/DVJs9OjRjPVZvNGPRAjoDSbWbmJEKanlRa5h/rzNHgg7R+6tR2iRru48gGXkt/5GgNMgfRIih6NP8spWJnvYASCeBIVeCaoEgZIK4oNsZyi/lPlgiGbNuU5xv3IrgQ6XqlA2qNwJLQh5tT8YTLi4OEpJGVojpxNjuELbTtadG1E=
+  - secure: jjjr7o8fPok8AQ9g0ii4ts4isc/QftyO+Sbu/Y/pxb/bnPLZckJav2k4/5oXA4d0iQi52gwvNzWQ0u5s+tC/nX06iumfqnZpCUgrt/rFoBgrV40OhRx5J/3UBXUgBwPU1Kjd/3F6LsNvnF7HdbtrEfxwDTRGBo1pbMoK9O269cuug+pLyR9DzgmvuZESWfxD8i1C9WVdXAYbflCUJ8r59M1y0PAEbq2s4Wb2d3xSq6qtlx83WNYhjUDModtm2crv7VQQCERR/hNULvMou1MI/9mqJg9iU1b8ZA8RqdatPEmavWYp8cYbTvcyoTRevTVZoO1fbERa29iWr/7AHgQbRLd8hA8wQSDf1/NPaTmE91ymwMlktCBrSgEnOVKNhL7lWxTLVXyjrL/HNTt5EKvZ0T3xMdbZNhq3PoNnPd/RmaEdxyG24ruHjxs+JRMqQbKUWmEAHNPsGc7WuTcPJAxjiucaO8G4EnpAsox4f0Q0ib//bAsFjxVkFETmla+N6TAwtkh2PeOacdYDahxe8v7gPAJFJjB7qgwfDcs1IwOhQVqQOSTT7pxmGwRmBvKu36pTcThU0Mm39oMfJrrPLb0+KJ+Y3UKfcOqsc7A7dLIjMaNz//RVtpeVBLBzkRDQ9z+zwhW0PnCD7B1uh0FyTvvmVDITWmS7K6aJgTOidaie6MI=
+  - COMMIT=${TRAVIS_COMMIT::8}
+  - REPO=$DOCKER_USER/home-automation-webapp
