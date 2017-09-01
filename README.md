@@ -1,4 +1,4 @@
-# Home Automation Server
+# Home Automation WebApp
 
 [![tests][tests]][tests-url]
 
