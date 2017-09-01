@@ -13,8 +13,7 @@ install:
 - npm install
 - npm run build
 script:
-- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH
-  ; fi`
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
 - docker build -t $REPO:$TAG .
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
@@ -29,7 +28,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    repo: "$REPO"
+    repo: $REPO
 env:
   global:
   - secure: TecGmyKwUSpfLG/7vlXQ/3CHsTVtPyKNJy90HCDv61dZxga7TAFLLQ03MWfrr5rrEUxc50P4pPt0mpNgYk7pbpjGYmWNO6fbcj/jhHkC81YTe5WKItwAkIH761M+bDBSh4B6n3wN27gl8S8zcw8Kz7ZYkAxigfCI69jKMvmhOe2hx4T1/wqx7zmNyDofjgg6Gm9jahFNjUYIyHwy4YvbsSAzNLTdYPlCs4Cs1MxIXmwYptJ3hHxH+ysTJ5wXjJ5/qaYJ411JF8CyyuU2BhSTguPuaFj3cFetfIGCqGCRVPI/QqPAfC2UNDaSIAy4IhWswxgaEC4+GmxPx0+pOiFbYnkLsyqQ7/tFRturqWKtXnPigJ9E0FTLyVi5H9dAg4EW9nJWsV6s0wBvYImk8GKw/u2PKVDYHEDejCXBd/PH6Jq5CLnbILbwYfPuAPbddBEV6dPRt988YgLiTxgnz9EylE9qoS5MuPdkBoj3NAG2jccfAi2tS1IumetgaQc30qm/DVJs9OjRjPVZvNGPRAjoDSbWbmJEKanlRa5h/rzNHgg7R+6tR2iRru48gGXkt/5GgNMgfRIih6NP8spWJnvYASCeBIVeCaoEgZIK4oNsZyi/lPlgiGbNuU5xv3IrgQ6XqlA2qNwJLQh5tT8YTLi4OEpJGVojpxNjuELbTtadG1E=

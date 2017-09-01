@@ -1,3 +1,8 @@
+# Home Automation Server
+
+[![tests][tests]][tests-url]
+
+
 #create release tag
 git tag -a v1.0 -m "Release 1.0"
 git push --tags origin master
@@ -15,3 +20,6 @@ https://sebest.github.io/post/using-travis-ci-to-build-docker-images/
 
 travis encrypt DOCKER_USER=username --add
 travis encrypt DOCKER_PASS=password --add
+
+[tests]: http://img.shields.io/travis/jluccisano/home-automation-webapp.svg
+[tests-url]: https://travis-ci.org/jluccisano/home-automation-webapp
