@@ -26,7 +26,7 @@ class Api {
   }
 
   static post(resourceApi, data) {
-    return Axios.post(Api.getURL(Config.serverURL + resourceApi), data)
+    return Axios.post(Api.getURL(Config.serverURL + resourceApi), JSON.stringify(data), {headers:{'Content-Type': 'application/json'}})
       .then(response => response.data)
       .catch(error => {
         throw (error);
