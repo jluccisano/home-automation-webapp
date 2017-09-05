@@ -1,7 +1,8 @@
-FROM nginx
+FROM tobi312/rpi-nginx
 RUN apt-get update \
-  && apt-get -y install zip
-ADD dist/home-automation-webapp.zip /usr/share/nginx/html
-WORKDIR /usr/share/nginx/html
+  && apt-get -y install unzip
+ADD dist/home-automation-webapp.zip /var/www/html
+WORKDIR /var/www/html
 RUN unzip -o home-automation-webapp.zip \
-  && rm home-automation-webapp.zip
+  && rm home-automation-webapp.zip \
+  && rm index.nginx-debian.html
