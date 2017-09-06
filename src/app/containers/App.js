@@ -20,7 +20,7 @@ class App extends Component {
     if (!isAuthenticated) {
       browserHistory.replace('/login');
     }
-    // this.props.startSprinklerPolling();
+    this.props.startSprinklerPolling();
     // this.props.startWebSocket();
   }
 
@@ -39,7 +39,7 @@ class App extends Component {
 App.propTypes = {
   children: PropTypes.object,
   isAuthenticated: PropTypes.bool,
-  // startSprinklerPolling: PropTypes.func,
+  startSprinklerPolling: PropTypes.func,
   // startWebSocket: PropTypes.func
 };
 

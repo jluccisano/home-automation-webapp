@@ -6,12 +6,15 @@ import * as AuthActions from '../../actions/authActions';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {TextField} from 'redux-form-material-ui';
+import {browserHistory} from 'react-router';
 
 class LoginForm extends Component {
   render() {
      const {handleSubmit, authenticate} = this.props;
      const submit = values => {
-        return authenticate(values);
+        return authenticate(values).then(() => {
+          browserHistory.replace('/');
+        });
      };
     return (
         <Grid fluid>
