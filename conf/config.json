@@ -1,4 +1,3 @@
 {
-  "serverURL": "http://localhost:8514",
-  "serverSocket": "http://localhost:8084/stomp"
+  "serverURL": "http://home-automation-server:8514"
 }
