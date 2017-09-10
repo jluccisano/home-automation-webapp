@@ -8,7 +8,7 @@ import './_Zone.scss';
 
 const Zone = ({setZone, zone}) => {
   const handleToggle = (event, isInputChecked) => {
-    setZone(isInputChecked);
+    setZone(zone, isInputChecked);
   };
 
   return (

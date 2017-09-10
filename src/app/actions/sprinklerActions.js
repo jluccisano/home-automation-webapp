@@ -39,7 +39,7 @@ export function fetchAllZone() {
 export function setZone(zone, state) {
   return dispatch => {
     dispatch({type: types.SET_ZONE_PENDING});
-    return Api.post(`/sprinkler/zones?state=${(state === true) ? 1 : 0}`, zone)
+    return Api.post(`/sprinkler/zones/{id}?state=${(state === true) ? 1 : 0}`, {id: zone.id})
       .then(() => {
         dispatch({
           type: types.SET_ZONE_SUCCESS,

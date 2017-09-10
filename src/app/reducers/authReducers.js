@@ -6,7 +6,7 @@ import {
 
 export const auth = (state = {
   isFetching: false,
-  isAuthenticated: localStorage.getItem('token') || false,
+  isAuthenticated: localStorage.getItem('token') ? true : false,
   token: '',
 }, action) => {
   switch (action.type) {

@@ -11,10 +11,10 @@ git push --tags origin master
 #encrypt pass and add in yaml
 travis encrypt "pass" --add deploy.user
 
-sudo docker build -t home-automation-webapp .
-sudo docker run -dit --name home-automation-webapp \
+sudo docker build -t jluccisano/home-automation-webapp .
+sudo docker run -it --name home-automation-webapp \
     -p 8515:8515 \
-    home-automation-webapp
+    jluccisano/home-automation-webapp
 
 https://sebest.github.io/post/using-travis-ci-to-build-docker-images/
 
