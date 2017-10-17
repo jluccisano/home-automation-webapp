@@ -13,7 +13,7 @@ docker build -t jluccisano/home-automation-webapp .
 ### Run
 
 ```bash
-docker run -it --name home-automation-webapp \
+docker run -dit --name home-automation-webapp \
     -p 8515:8515 \
     jluccisano/home-automation-webapp
 ```
