@@ -1,5 +1,4 @@
 import Axios from 'axios';
-import Config from 'Config';
 import UriTemplate from 'uri-template.js';
 
 class Api {
@@ -18,7 +17,7 @@ class Api {
   }
 
   static get(resourceApi, templatedValues) {
-    return Axios.get(Api.getURL(Config.serverURL + resourceApi, templatedValues))
+    return Axios.get(Api.getURL(process.env.SERVER_URL + resourceApi, templatedValues))
       .then(response => response.data)
       .catch(error => {
         throw (error);
@@ -26,7 +25,7 @@ class Api {
   }
 
   static post(resourceApi, templatedValues, data) {
-    return Axios.post(Api.getURL(Config.serverURL + resourceApi, templatedValues), JSON.stringify(data), {headers:{'Content-Type': 'application/json'}})
+    return Axios.post(Api.getURL(process.env.SERVER_URL + resourceApi, templatedValues), JSON.stringify(data), {headers:{'Content-Type': 'application/json'}})
       .then(response => response.data)
       .catch(error => {
         throw (error);
@@ -34,7 +33,7 @@ class Api {
   }
 
   static put(resourceApi, templatedValues, data) {
-    return Axios.put(Api.getURL(Config.serverURL + resourceApi, templatedValues), data)
+    return Axios.put(Api.getURL(process.env.SERVER_URL + resourceApi, templatedValues), data)
       .then(response => response.data)
       .catch(error => {
         throw (error);
@@ -42,7 +41,7 @@ class Api {
   }
 
   static delete(resourceApi, templatedValues) {
-    return Axios.delete(Api.getURL(Config.serverURL + resourceApi, templatedValues))
+    return Axios.delete(Api.getURL(process.env.SERVER_URL + resourceApi, templatedValues))
       .then(response => response.data)
       .catch(error => {
         throw (error);

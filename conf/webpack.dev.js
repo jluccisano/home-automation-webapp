@@ -5,7 +5,12 @@ const CommonConfig = require('./webpack.common.js');
 
 module.exports = Merge(CommonConfig, {
   plugins: [
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.DefinePlugin({
+        'process.env': {
+          'SERVER_URL': 'http://localhost:8514'
+        }
+      })
   ],
   devServer: {
     publicPath: '/',

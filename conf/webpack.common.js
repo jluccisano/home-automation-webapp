@@ -10,10 +10,6 @@ const extractSass = new ExtractTextPlugin({
 
 module.exports = {
 
-  externals: {
-    Config: JSON.stringify(require('./config.json'))
-  },
-
   context: path.join(process.cwd(), 'src'), //the home directory for webpack
 
   devtool: 'source-map', // enhance debugging by adding meta info for the browser devtools
