@@ -15,7 +15,8 @@ docker build -t jluccisano/home-automation-webapp .
 ```bash
 docker run -dit --name home-automation-webapp \
     -p 8515:8515 \
-    jluccisano/home-automation-webapp
+    -link home-automation-server:home-automation-server \
+    home-automation-webapp
 ```
 
 [tests]: http://img.shields.io/travis/jluccisano/home-automation-webapp.svg
