@@ -11,7 +11,8 @@ module.exports = Merge(CommonConfig, {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+        'NODE_ENV': JSON.stringify('production'),
+        'SERVER_URL': JSON.stringify(process.env.SERVER_URL || 'http://localhost:8514')
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
