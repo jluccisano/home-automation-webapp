@@ -14,8 +14,7 @@ docker build -t jluccisano/home-automation-webapp .
 
 ```bash
 docker run -dit --name home-automation-webapp \
-    -p 8515:80 \
-    -e SERVER_URL=http://home-automation-server:8514 \
+    -p 8515:8515 \
     jluccisano/home-automation-webapp
 ```
 
