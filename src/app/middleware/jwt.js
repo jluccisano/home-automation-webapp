@@ -23,11 +23,8 @@ const jwtMiddleware = () => {
         });
         break;
       case 'GET_TOKEN':
-        const currentToken = localStorage.getItem('token');
+        const currentToken = localStorage.getItem("token");
         console.log(currentToken);
-        break;
-      case 'REMOVE_TOKEN':
-        localStorage.removeItem('token');
         break;
       default:
         return next(action);

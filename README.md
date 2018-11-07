@@ -7,16 +7,16 @@
 ### Build
 
 ```bash
-docker build -t jluccisano/chrono .
+docker build -t jluccisano/home-automation-webapp .
 ```
 
 ### Run
 
 ```bash
-docker run -dit --name chrono \
-    -p 8515:80 \
-    jluccisano/chrono
+docker run -dit --name home-automation-webapp \
+    -p 8515:8515 \
+    jluccisano/home-automation-webapp
 ```
 
-[tests]: http://img.shields.io/travis/jluccisano/chrono.svg
-[tests-url]: https://travis-ci.org/jluccisano/chrono
+[tests]: http://img.shields.io/travis/jluccisano/home-automation-webapp.svg
+[tests-url]: https://travis-ci.org/jluccisano/home-automation-webapp
