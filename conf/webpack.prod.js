@@ -9,12 +9,6 @@ module.exports = Merge(CommonConfig, {
       minimize: true,
       debug: false
     }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production'),
-        'SERVER_URL': JSON.stringify('http://81.56.136.120:8514' || 'http://localhost:8514')
-      }
-    }),
     new webpack.optimize.UglifyJsPlugin({
       beautify: false,
       mangle: {
@@ -27,7 +21,7 @@ module.exports = Merge(CommonConfig, {
       comments: false
     }),
     new ZipPlugin({
-      filename: 'home-automation-webapp.zip',
+      filename: 'chrono.zip',
       extension: 'zip',
       pathPrefix: './'
     })
